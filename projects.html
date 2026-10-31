@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ehtisham Nazeer — selected work: campaigns, leagues and esports events across Free Fire, Tekken, Zong, Raptr Wallet and more.">
+<meta name="theme-color" content="#fbfaf7">
+<title>Projects — Ehtisham Nazeer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header"><div class="wrap nav">
+<a class="logo" href="index.html">EN<i>.</i></a>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="links">MENU +</button>
+<nav class="links" id="links" aria-label="Main navigation">
+<a href="index.html">Home</a><a href="experience.html">Experience</a><a href="projects.html" class="active">Projects</a><a href="contact.html">Contact</a><a class="navcta" href="contact.html">Let's talk ↗</a>
+</nav></div></header>
+<main id="main">
+<div class="wrap page-hero">
+<div class="kicker">Selected work</div>
+<h1>Campaigns.<br><span class="thin">Leagues. Events.</span></h1>
+<p class="lead">Selected highlights from Free Fire, Tekken, Zong, Raptr Wallet and other esports projects — spanning community growth, campaign delivery and live competition.</p>
+</div>
+
+<section style="padding-top:36px"><div class="wrap">
+<div class="groups">
+<div class="project-group reveal"><div class="gnum">01</div><h3>Free Fire</h3><div class="role">Community Manager · 2024–2026</div><ul class="project-list"><li><span>Free Fire Pakistan World Cup Qualifiers</span><span>2024</span></li><li><span>Free Fire World Series Pakistan</span><span>2024</span></li><li><span>Free Fire Jazba Series</span><span>2024</span></li><li><span>Red Bull M.E.O. Pakistan</span><span>2024</span></li><li><span>Free Fire Pakistan World Cup Qualifiers</span><span>2025</span></li><li><span>Free Fire Battle of Cities</span><span>2025</span></li><li><span>FFWS Pakistan Battle Royale</span><span>2025</span></li><li><span>FFWS Pakistan Clash Squad</span><span>2025</span></li><li><span>Free Fire Ramadan Cup Pakistan Qualifier</span><span>2026</span></li><li><span>FFWS Pakistan Spring</span><span>2026</span></li><li><span>Indus eSports Championship</span><span>2026</span></li><li><span>FFWS Pakistan Fall</span><span>2026</span></li></ul></div>
+<div class="project-group reveal"><div class="gnum">02</div><h3>Tekken</h3><div class="role">Marketing Team · 2024–2026</div><ul class="project-list"><li><span>The Baaz Gauntlet · Tekken 8 Invitational</span><span>2024</span></li><li><span>Pakistan vs Korea · Tekken 8</span><span>2025</span></li><li><span>Baaz Takedown</span><span>2025</span></li><li><span>Baaz Gauntlet 2 · Qualifiers</span><span>2025</span></li><li><span>Pakistan Tekken League</span><span>2026</span></li></ul></div>
+<div class="project-group reveal"><div class="gnum">03</div><h3>Zong Engage</h3><div class="role">Campaigns · 2024–2026</div><ul class="project-list"><li><span>Free Fire Engage 3.0</span><span>2024</span></li><li><span>Free Fire Series 3.1</span><span>2024</span></li><li><span>Free Fire Engage 4.1</span><span>2024</span></li><li><span>Zong 4G Free Fire Frenzy</span><span>2024</span></li><li><span>Zong 4G Free Fire Frenzy 4.0</span><span>2024</span></li><li><span>Zong Free Fire Ultimate Series 2.0</span><span>2025</span></li><li><span>Zong Engage Free Fire Azadi Series</span><span>2025</span></li><li><span>Free Fire Ultimate Battle</span><span>2026</span></li><li><span>Zong Engage Free Fire Series II</span><span>2026</span></li></ul></div>
+<div class="project-group reveal"><div class="gnum">04</div><h3>Raptr Wallet</h3><div class="role">Tournaments</div><ul class="project-list"><li><span>PUBG Solo Showdown</span></li><li><span>Free Fire Solo Cup</span></li><li><span>EA FC Mobile H2H Cup</span></li><li><span>Tekken 8 Raptr Showdown</span></li><li><span>Raptr Chess Tournament</span></li><li><span>Raptr Carrom Showdown</span></li><li><span>Clash Royale Solo Tournament</span></li><li><span>JazzCash Free Fire Fury Cup Season 1</span></li><li><span>JazzCash Free Fire Fury Cup Season 2</span></li><li><span>Ludo Star Showdown</span></li><li><span>8 Ball Pool Solo Cup</span></li></ul></div>
+<div class="project-group reveal"><div class="gnum">05</div><h3>Other esports</h3><div class="role">Selected contributions</div><ul class="project-list"><li><span>HBL Office Showdown</span><span>League Ops Lead</span></li><li><span>Sindh Esports Championship Season 2</span><span>Content Lead</span></li><li><span>PFF · eFootball &amp; Rocket League</span><span>League Ops Lead</span></li></ul></div>
+</div>
+<div class="project-note reveal">Event posters and visuals for these projects are being added — check back soon.</div>
+</div></section>
+</main>
+<footer><div class="wrap foot"><span class="flogo">EN<i>.</i></span><span>© 2026 Ehtisham Nazeer</span><span>Marketing · Business Development · Community &amp; Operations</span></div></footer>
+<script>
+const menu=document.getElementById('menu'),links=document.getElementById('links');
+menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'CLOSE −':'MENU +'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none'}));
+</script>
+</body>
+</html>
