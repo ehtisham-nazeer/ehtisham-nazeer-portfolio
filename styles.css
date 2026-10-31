@@ -286,3 +286,18 @@ footer{background:var(--ink);color:#a9a9b2}
 .lightbox img{max-width:92vw;max-height:84vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .lb-cap{color:#fff;text-align:center;margin-top:12px;font-size:14px}
 .lb-x{position:absolute;top:16px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1}
+
+/* ---------- project tabs ---------- */
+.tabs-wrap{position:sticky;top:65px;z-index:40;background:rgba(248,248,246,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:10px;overflow-x:auto;padding:14px 4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{display:flex;align-items:center;gap:10px;padding:11px 18px;border:1px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font:700 13.5px var(--body);white-space:nowrap;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.tab .tnum{font:500 10.5px var(--mono);letter-spacing:.1em;opacity:.55}
+.tab em{font:500 11px var(--mono);font-style:normal;background:var(--ink);color:#fff;border-radius:999px;padding:3px 9px}
+.tab:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.tab.active{background:var(--ink);color:#fff}
+.tab.active em{background:#fff;color:var(--ink)}
+body.js .project-group{display:none}
+body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes pgIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.tabs-wrap{top:57px}.tab{padding:10px 15px;font-size:12.5px}}
