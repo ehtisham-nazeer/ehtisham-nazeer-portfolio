@@ -278,3 +278,5 @@ footer{background:var(--ink);color:#a9a9b2}
 .lb-cap{color:#fff;text-align:center;margin-top:12px;font-size:14px}
 .lb-x{position:absolute;top:16px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1}
 @media(max-width:640px){.poster-grid{grid-template-columns:repeat(2,1fr)}}
+
+.poster-grid figure.wide img{object-fit:contain;background:#101010}
