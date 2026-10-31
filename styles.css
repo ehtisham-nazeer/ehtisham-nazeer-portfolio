@@ -184,7 +184,7 @@ h2 .thin{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
 .cta-orb.two{left:auto;right:-50px;top:-60px;bottom:auto;width:150px}
 
 /* ---------- footer ---------- */
-footer{background:var(--ink);color:#a9a9b2;margin-top:72px}
+footer{background:var(--ink);color:#a9a9b2}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:26px 0;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
 .foot .flogo{font:800 17px var(--display);color:#fff;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
 
@@ -245,3 +245,19 @@ footer{background:var(--ink);color:#a9a9b2;margin-top:72px}
   *,*:before,*:after{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ---------- follow band (pre-footer) ---------- */
+.follow-band{border-top:1px solid var(--ink);padding:60px 0;background:var(--paper)}
+.follow-inner{display:flex;justify-content:space-between;align-items:center;gap:36px;flex-wrap:wrap}
+.follow-kicker{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.follow-inner h2{font:800 clamp(42px,5.4vw,72px)/.95 var(--display);text-transform:uppercase;letter-spacing:-.04em;margin:12px 0 0}
+.follow-links{display:flex;flex-direction:column;min-width:min(320px,100%);flex:1;max-width:420px}
+.follow-links a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 6px;border-bottom:1px solid var(--line);font:600 15px var(--body);letter-spacing:-.01em;transition:.22s}
+.follow-links a:first-child{border-top:1px solid var(--line)}
+.follow-links a b{font-weight:600}
+.follow-links a span{font:500 13px var(--mono)}
+.follow-links a:hover{background:var(--ink);color:#fff;padding-left:16px;padding-right:16px;border-color:var(--ink)}
+/* ---------- back button ---------- */
+.back-btn{display:inline-flex;align-items:center;gap:8px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);background:var(--card);padding:10px 18px;border-radius:999px;margin-bottom:20px;transition:.2s;position:relative;z-index:2}
+.back-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media(max-width:760px){.follow-band{padding:44px 0}.follow-inner{flex-direction:column;align-items:stretch}}
