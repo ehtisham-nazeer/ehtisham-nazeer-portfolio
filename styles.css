@@ -9,8 +9,9 @@
   --shadow:0 10px 30px rgba(12,12,14,.07);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{overflow-x:clip}
+body{margin:0;overflow-x:clip;background:var(--paper);color:var(--ink);font-family:var(--body);letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
 ::selection{background:var(--ink);color:#fff}
@@ -23,7 +24,7 @@ img{max-width:100%}
 /* ---------- header ---------- */
 .header{position:sticky;top:0;z-index:50;background:rgba(248,248,246,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ink)}
 .nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font:800 26px/1 var(--display);letter-spacing:-.04em}
+.logo{font:800 21px/1 var(--display);letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
 .logo i{font-style:normal}
 .links{display:flex;align-items:center;gap:6px}
 .links a{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:10px 14px;border-radius:999px;color:var(--ink-soft);transition:.2s}
@@ -106,10 +107,11 @@ h2 .thin{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
 .subhead span{font:500 10px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 
 /* games with official logos */
-.game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.game-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .game{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 18px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:.22s;box-shadow:0 2px 8px rgba(12,12,14,.04)}
 .game:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--ink)}
 .game img{height:52px;width:auto;max-width:150px;object-fit:contain}
+.game-icon img{height:64px;width:64px;object-fit:cover;border-radius:16px;box-shadow:0 4px 12px rgba(12,12,14,.15)}
 .game b{font:700 13px var(--display);text-transform:uppercase;letter-spacing:.05em}
 .game small{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
@@ -184,7 +186,7 @@ h2 .thin{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
 /* ---------- footer ---------- */
 footer{background:var(--ink);color:#a9a9b2;margin-top:72px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:26px 0;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
-.foot .flogo{font:800 20px var(--display);color:#fff;letter-spacing:-.03em}
+.foot .flogo{font:800 17px var(--display);color:#fff;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
