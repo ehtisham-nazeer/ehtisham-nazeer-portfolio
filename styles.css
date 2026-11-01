@@ -358,3 +358,8 @@ body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.
   .ataglance{grid-template-columns:1fr}
   .tab{font-size:11.5px;padding:9px 13px}
 }
+
+/* wide logo lockups: tile aspect matched so contain leaves no blank bands */
+.work-visual.ar-ultrawide{aspect-ratio:7/2}
+.work-visual.ar-wide{aspect-ratio:2/1}
+.work-visual.ar-ultrawide img,.work-visual.ar-wide img{padding:14px}
