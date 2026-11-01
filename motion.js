@@ -129,7 +129,8 @@ function opening(E){
   if(document.querySelector('.hero')){
     gsap.timeline({defaults:{ease:E}})
       .from('.hero > .eyebrow',{y:14,opacity:0,duration:.55},0)
-      .from('.hero > h1',{y:24,opacity:0,duration:.7},.07)
+      /* signature: clean line-mask reveal on the name */
+      .from('.hero > h1 .lm > span',{yPercent:118,duration:.85,stagger:.12},.05)
       /* opacity only: orbFloat owns .hero-art's transform */
       .from('.hero-art',{opacity:0,duration:.9},.15)
       .from('.hero > .hero-sub',{y:18,opacity:0,duration:.6},.16)
