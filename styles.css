@@ -266,11 +266,15 @@ footer{background:var(--ink);color:#a9a9b2}
 /* ---- project work cards ---- */
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px;margin-top:22px}
 .work-card{margin:0}
-.work-visual{aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#f5f4f1;border:1px solid #e9e8e4;display:flex;align-items:center;justify-content:center}
-.work-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.work-visual{aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#101012;border:1px solid #e9e8e4;display:flex;align-items:center;justify-content:center}
+/* UNIFIED banner preview: complete artwork, original aspect ratio, centered — never cropped (2026-11-01) */
+.work-visual img{width:100%;height:100%;object-fit:contain;object-position:center center;padding:0;display:block}
+.work-visual.cover img{object-fit:contain}
 .work-card[data-full] .work-visual{cursor:zoom-in}
 .work-visual.contain{background:#101012}
-.work-visual.contain img{object-fit:contain;padding:20px}
+.work-visual.contain img{object-fit:contain;object-position:center center;padding:0}
+.work-visual.fit-img{aspect-ratio:4/3}
+.work-visual.fit-img img{width:100%;height:100%;object-fit:contain;object-position:center center;padding:0}
 .work-visual.tile{background:#0d0d0f}
 /* premium event tiles (no artwork yet): editorial black cards, not placeholders */
 .work-visual.tile{position:relative;flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:left;padding:20px 20px 22px;overflow:hidden;background:radial-gradient(130% 130% at 15% 0%,#1e1e24 0%,#0c0c0e 55%,#060608 100%)}
@@ -364,6 +368,4 @@ body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.
   .tab{font-size:11.5px;padding:9px 13px}
 }
 
-/* wide logo lockups: image keeps its own ratio, fills tile edge-to-edge, no crop, no blank */
-.work-visual.fit-img{aspect-ratio:auto}
-.work-visual.fit-img img{width:100%;height:auto;padding:0;display:block;object-fit:contain}
+/* (legacy fit-img treatment retired 2026-11-01 — unified banner preview above applies) */
