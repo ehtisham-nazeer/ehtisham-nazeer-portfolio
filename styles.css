@@ -359,7 +359,6 @@ body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.
   .tab{font-size:11.5px;padding:9px 13px}
 }
 
-/* wide logo lockups: tile aspect matched so contain leaves no blank bands */
-.work-visual.ar-ultrawide{aspect-ratio:7/2}
-.work-visual.ar-wide{aspect-ratio:2/1}
-.work-visual.ar-ultrawide img,.work-visual.ar-wide img{padding:14px}
+/* wide logo lockups: image keeps its own ratio, fills tile edge-to-edge, no crop, no blank */
+.work-visual.fit-img{aspect-ratio:auto}
+.work-visual.fit-img img{width:100%;height:auto;padding:0;display:block;object-fit:contain}
