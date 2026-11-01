@@ -272,6 +272,10 @@ footer{background:var(--ink);color:#a9a9b2}
    (no black bars), complete artwork floats centered on top — never cropped, never stretched */
 .work-visual.smart::before{content:"";position:absolute;inset:-8%;background-image:var(--bg);background-size:cover;background-position:center;filter:blur(26px) brightness(.55) saturate(1.25)}
 .work-visual.smart img{position:relative;z-index:1;object-fit:contain;object-position:center}
+/* NATURAL banner previews (2026-11-01): image keeps its own aspect ratio, no forced crop,
+   no fixed frame — banners look like actual banners; heights may vary slightly */
+.work-visual.natural{aspect-ratio:auto}
+.work-visual.natural img{width:100%;height:auto;object-fit:contain;flex:none}
 .work-card[data-full] .work-visual{cursor:zoom-in}
 .work-visual.tile{background:#0d0d0f}
 /* premium event tiles (no artwork yet): editorial black cards, not placeholders */
