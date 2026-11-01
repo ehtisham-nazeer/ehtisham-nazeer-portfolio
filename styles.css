@@ -633,3 +633,6 @@ html.lenis,html.lenis body{height:auto}
 /* ---- opening line-mask reveal (home hero, GSAP only) ---- */
 .gsap-on .hero>h1 .lm{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.09em;margin-bottom:-.09em}
 .gsap-on .hero>h1 .lm>span{display:inline-block;will-change:transform}
+
+/* ---- mobile hero: name stays cleanly above the floating orb art ---- */
+@media(max-width:760px){.hero>h1{position:relative;z-index:2}}
