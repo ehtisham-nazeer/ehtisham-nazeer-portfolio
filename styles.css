@@ -301,7 +301,7 @@ footer{background:var(--ink);color:#a9a9b2}
 body.js .project-group{display:none}
 body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes pgIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@media(max-width:760px){.tabs-wrap{top:57px}.tabs{flex-wrap:wrap;overflow:visible}.tab{padding:10px 15px;font-size:12.5px}}
+@media(max-width:760px){.tabs-wrap{top:68px}.tabs{flex-wrap:wrap;overflow:visible}.tab{padding:10px 15px;font-size:12.5px}}
 
 /* ---------- secondary follow links ---------- */
 .follow-links.secondary{flex-direction:row;align-items:center;gap:14px;min-width:0;max-width:none;flex:0 1 auto}
@@ -313,3 +313,50 @@ body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.
 .contact-note{margin:28px 0 0;text-align:center;font:500 11px/2 var(--mono);letter-spacing:.06em;color:var(--muted)}
 .contact-note a{color:inherit}
 .contact-note a:hover{color:var(--ink);text-decoration:underline}
+
+/* ---------- responsive refinements ---------- */
+/* tablet: stack about grid (portrait + card too cramped side-by-side) */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .portrait-card{min-height:440px}
+}
+/* impact 3-col variant must also collapse (specificity fix) */
+@media(max-width:1000px){
+  .impact-grid.cols3{grid-template-columns:1fr 1fr}
+}
+/* small phones */
+@media(max-width:480px){
+  .hero{padding:44px 0 28px}
+  .hero-actions{flex-wrap:wrap}
+  .hero-actions .btn{flex:1 1 auto}
+  .contact-links{flex-wrap:wrap}
+  .contact-links .btn{flex:1 1 100%}
+  .skills{grid-template-columns:1fr}
+  .subhead{flex-wrap:wrap}
+  .metric{padding:18px 14px}
+  .metric strong{font-size:32px}
+  .work-grid{gap:14px 10px}
+  .work-card figcaption b{font-size:13px}
+  .work-card figcaption span{font-size:11px}
+  .impact-item{padding:20px 14px}
+  .impact-item strong{font-size:34px}
+  .glance{padding:18px 14px}
+  .job{padding:20px 16px}
+  .cta-band{padding:36px 22px}
+  section{padding:48px 0}
+  .page-hero{padding:48px 0 4px}
+  .contact-hero{padding:56px 0 12px}
+  .contact-card{padding:28px 20px}
+  .foot{gap:8px}
+}
+/* very small phones */
+@media(max-width:360px){
+  .metrics{grid-template-columns:1fr 1fr}
+  .brand-grid{grid-template-columns:1fr 1fr}
+  .brand:nth-child(3n+2){border-left:0;border-right:0}
+  .brand:nth-child(2n){border-left:1px solid var(--line)}
+  .brand:nth-child(n+3){border-top:1px solid var(--line)}
+  .game-grid{grid-template-columns:1fr 1fr}
+  .ataglance{grid-template-columns:1fr}
+  .tab{font-size:11.5px;padding:9px 13px}
+}
