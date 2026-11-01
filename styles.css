@@ -247,6 +247,7 @@ footer{background:var(--ink);color:#a9a9b2}
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
+  .impact .impact-item{opacity:1;transform:none}
 }
 
 /* ---------- follow band (pre-footer) ---------- */
@@ -533,3 +534,33 @@ h2{letter-spacing:-.045em}
 
 /* ---- 5. Unify interactive timing on the motion system ---- */
 .btn,.tab,.back-btn,.follow-links a,.follow-links.secondary a,.brand,.game,.skill,.glance,.job,.edu,.meta-box,.work-card,.metric{transition-timing-function:var(--ease)}
+
+/* ============================================================
+   MOTION ROUND 2 — subtle 3D (2026-11-01)
+   Card tilt (desktop only), orb scroll parallax, stat staggers.
+   Images rigid-rotated only — never stretched/cropped.
+   ============================================================ */
+
+/* ---- 1. Work cards: responsive tilt base ---- */
+.work-card{transition:transform .18s ease-out,box-shadow .3s var(--ease)}
+
+/* ---- 2. Impact stats: staggered entrance inside the band ---- */
+.impact .impact-item{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease),background .25s}
+.impact.visible .impact-item{opacity:1;transform:none}
+.impact.visible .impact-item:nth-child(2){transition-delay:.07s,0s,0s}
+.impact.visible .impact-item:nth-child(3){transition-delay:.14s,0s,0s}
+.impact.visible .impact-item:nth-child(4){transition-delay:.21s,0s,0s}
+.impact.visible .impact-item:nth-child(5){transition-delay:.28s,0s,0s}
+.impact.visible .impact-item:nth-child(6){transition-delay:.35s,0s,0s}
+.impact.visible .impact-item:nth-child(7){transition-delay:.42s,0s,0s}
+
+/* ---- 3. Hero metrics: staggered numbers (replaces block fade) ---- */
+.hero>.metrics{animation:none}
+.hero>.metrics .metric{animation:heroIn .6s var(--ease) both}
+.hero>.metrics .metric:nth-child(2){animation-delay:.46s}
+.hero>.metrics .metric:nth-child(3){animation-delay:.54s}
+.hero>.metrics .metric:nth-child(4){animation-delay:.62s}
+.hero>.metrics .metric:nth-child(1){animation-delay:.38s}
+
+/* ---- 4. Decorative orbs: JS scroll parallax target ---- */
+.page-orb,.cta-orb{will-change:translate}
