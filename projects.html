@@ -89,6 +89,7 @@
 <div class="project-note reveal">Project visuals showcase selected events and campaigns in which I contributed.</div>
 </div></section>
 </main>
+<div class="wrap"><nav class="page-pager reveal" aria-label="Continue exploring"><span class="pager-label">Continue exploring</span><div class="pager-links"><a class="btn ghost" href="experience.html">Experience</a><a class="btn ghost" href="contact.html">Contact ↗</a></div></nav></div>
 <div class="follow-band"><div class="wrap"><div class="follow-inner reveal">
 <div><span class="follow-kicker">Find me elsewhere</span></div>
 <div class="follow-links secondary">
@@ -128,9 +129,9 @@ function activateTab(t){
 tabs.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-selected','false');x.tabIndex=-1;});
 t.classList.add('active');t.setAttribute('aria-selected','true');t.tabIndex=0;
 pgroups.forEach(function(g){g.classList.toggle('active',g.id===t.getAttribute('data-tab'));});
-var tw=document.querySelector('.tabs-wrap');
-if(tw){if(window.__lenis){window.__lenis.scrollTo(tw,{offset:-72,duration:1});}else{tw.scrollIntoView({behavior:'smooth',block:'start'});}}
-if(window.__motionCards){var ng=document.getElementById(t.getAttribute('data-tab'));if(ng)window.__motionCards(ng);}}
+var ng=document.getElementById(t.getAttribute('data-tab'));
+if(ng){if(window.__lenis){window.__lenis.scrollTo(ng,{offset:-150,duration:.9});}else{var y=ng.getBoundingClientRect().top+window.scrollY-150;window.scrollTo({top:Math.max(0,y),behavior:'smooth'});}}
+if(window.__motionCards&&ng){window.__motionCards(ng);}}
 tabs.forEach(function(t,i){t.tabIndex=t.classList.contains('active')?0:-1;
 t.addEventListener('click',function(){activateTab(t);});
 t.addEventListener('keydown',function(e){var n=null;

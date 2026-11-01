@@ -621,3 +621,8 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---- GSAP drives tab-switch card stagger: kill container pgIn ---- */
 .gsap-on body.js .project-group.active{animation:none}
+
+/* ---- page pager: jump between sub-pages without round-tripping home ---- */
+.page-pager{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:36px 0 6px}
+.pager-label{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pager-links{display:flex;gap:10px;flex-wrap:wrap}
