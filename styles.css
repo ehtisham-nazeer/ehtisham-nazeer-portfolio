@@ -272,7 +272,12 @@ footer{background:var(--ink);color:#a9a9b2}
 .work-visual.contain{background:#101012}
 .work-visual.contain img{object-fit:contain;padding:20px}
 .work-visual.tile{background:#0d0d0f}
-.work-visual.tile span{font:800 clamp(28px,3.4vw,44px)/1 var(--display);color:#fff;letter-spacing:.02em}
+/* premium event tiles (no artwork yet): editorial black cards, not placeholders */
+.work-visual.tile{position:relative;flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:left;padding:20px 20px 22px;overflow:hidden;background:radial-gradient(130% 130% at 15% 0%,#1e1e24 0%,#0c0c0e 55%,#060608 100%)}
+.work-visual.tile span{position:absolute;right:-8px;bottom:-34px;font:800 118px/1 var(--display);color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.13);letter-spacing:0;pointer-events:none;user-select:none}
+.work-visual.tile::before{content:attr(data-meta);font:500 8.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#9a9aa3;margin-bottom:auto}
+.work-visual.tile::after{content:attr(data-ev);font:800 clamp(23px,2.3vw,36px)/.95 var(--display);text-transform:uppercase;letter-spacing:-.02em;color:#fff;position:relative}
+@media(max-width:640px){.work-visual.tile{padding:14px}.work-visual.tile::after{font-size:19px}.work-visual.tile span{font-size:84px;bottom:-24px}}
 .work-card figcaption{margin-top:10px}
 .work-card figcaption b{display:block;font-size:14.5px;font-weight:700;letter-spacing:-.01em;line-height:1.35}
 .work-card figcaption span{font-size:12px;color:#8a8a8e}
