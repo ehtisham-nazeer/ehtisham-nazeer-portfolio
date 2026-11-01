@@ -263,9 +263,6 @@ footer{background:var(--ink);color:#a9a9b2}
 .back-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 @media(max-width:760px){.follow-band{padding:44px 0}.follow-inner{flex-direction:column;align-items:stretch}}
 
-}
-
-
 /* ---- project work cards ---- */
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px;margin-top:22px}
 .work-card{margin:0}
