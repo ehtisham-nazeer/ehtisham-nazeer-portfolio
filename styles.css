@@ -208,8 +208,7 @@ footer{background:var(--ink);color:#a9a9b2}
 @media(max-width:760px){
   .wrap{width:calc(100% - 36px)}
   .menu{display:block}
-  .links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);padding:10px 18px 18px;border-bottom:1px solid var(--ink);flex-direction:column;align-items:stretch;gap:2px;box-shadow:0 20px 30px rgba(0,0,0,.08)}
-  .links.open{display:flex}
+
   .links a{padding:13px 14px}
   .links .navcta{text-align:center;margin:8px 0 0}
   .hero{padding:52px 0 32px}
@@ -492,3 +491,45 @@ h2{letter-spacing:-.045em}
   .hero-art{animation-duration:9s}
   .impact,.cta-band{box-shadow:0 16px 40px rgba(12,12,14,.18)}
 }
+
+/* ============================================================
+   MOTION SYSTEM (2026-11-01)
+   One easing language, small distances, no waiting.
+   Content and images untouched — presentation only.
+   ============================================================ */
+:root{--ease:cubic-bezier(.16,.8,.24,1);--dur-s:.22s;--dur-m:.45s}
+
+/* ---- 1. Opening: staggered hero entrance (no loader, no waiting) ---- */
+@keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero>.eyebrow,.hero>h1,.hero>.hero-sub,.hero>.hero-copy,.hero>.hero-actions,
+.page-hero>.back-btn,.page-hero>.kicker,.page-hero>h1,.page-hero>.lead,
+.contact-hero>.back-btn,.contact-hero>.kicker,.contact-hero>h1,.contact-hero>p,
+.contact-card{animation:heroIn .7s var(--ease) both}
+.hero>h1,.page-hero>h1,.contact-hero>h1{animation-delay:.08s}
+.hero>.hero-sub,.page-hero>.lead,.contact-hero>p{animation-delay:.16s}
+.hero>.hero-copy{animation-delay:.22s}
+.contact-card{animation-delay:.24s}
+.hero>.hero-actions{animation-delay:.3s}
+.hero>.metrics{animation:heroIn .7s var(--ease) .38s both}
+.page-hero>.kicker,.contact-hero>.kicker{animation-delay:.04s}
+
+/* ---- 2. Hero 3D: mouse parallax (JS sets translate; desktop only) ---- */
+.hero-art{transition:translate .35s ease-out;will-change:translate}
+
+/* ---- 3. Mobile menu: smooth open/close ---- */
+@media(max-width:760px){
+  .links{display:flex;position:absolute;top:68px;left:0;right:0;background:var(--paper);padding:10px 18px 18px;border-bottom:1px solid var(--ink);flex-direction:column;align-items:stretch;gap:2px;box-shadow:0 20px 30px rgba(0,0,0,.08);opacity:0;transform:translateY(-10px);pointer-events:none;visibility:hidden;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility 0s .28s}
+  .links.open{display:flex;opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .28s var(--ease),transform .28s var(--ease)}
+}
+
+/* ---- 4. Lightbox: prev/next controls ---- */
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:22px;line-height:1;cursor:pointer;transition:background .2s,color .2s,transform .2s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:2}
+.lb-prev{left:18px}
+.lb-next{right:18px}
+.lb-prev:hover,.lb-next:hover{background:#fff;color:#000;transform:translateY(-50%) scale(1.06)}
+.lb-prev:active,.lb-next:active{transform:translateY(-50%) scale(.96)}
+.lightbox img{transition:opacity .25s ease}
+@media(max-width:640px){.lb-prev{left:8px}.lb-next{right:8px}.lb-prev,.lb-next{width:42px;height:42px}}
+
+/* ---- 5. Unify interactive timing on the motion system ---- */
+.btn,.tab,.back-btn,.follow-links a,.follow-links.secondary a,.brand,.game,.skill,.glance,.job,.edu,.meta-box,.work-card,.metric{transition-timing-function:var(--ease)}
