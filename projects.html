@@ -122,25 +122,21 @@
 </div>
 </div></div></div>
 <footer><div class="wrap foot"><span class="flogo">Ehtisham Nazeer</span><span>© 2026 Ehtisham Nazeer</span><span>Marketing · Business Development · Community &amp; Operations</span></div></footer>
-<script>
-const menu=document.getElementById('menu'),links=document.getElementById('links');
-menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'CLOSE −':'MENU +'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='MENU +';menu.focus();}});
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-(function(){if(!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var orbs=document.querySelectorAll('.page-orb,.cta-orb');if(!orbs.length)return;var tick=false;addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){var y=Math.min(scrollY,600)*.07;orbs.forEach(function(o){o.style.translate='0 '+y.toFixed(1)+'px';});tick=false;});},{passive:true});})();(function(){if(!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.querySelectorAll('.work-card').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateX('+(-y*5).toFixed(2)+'deg) rotateY('+(x*5).toFixed(2)+'deg) translateY(-4px)';});c.addEventListener('mouseleave',function(){c.style.transform='';});});})();document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{var f=img.closest('figure');if(f){f.style.display='none';}else{img.style.display='none';}}));
-</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="motion.js"></script>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer"><button class="lb-x" id="lbClose" aria-label="Close image viewer">&times;</button><button class="lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button><button class="lb-next" id="lbNext" aria-label="Next image">&#8250;</button><div><img id="lbImg" src="" alt=""><div class="lb-cap" id="lbCap"></div></div></div>
 <script>
 (function(){var lb=document.getElementById('lightbox'),im=document.getElementById('lbImg'),cp=document.getElementById('lbCap');
 var lastFocus=null,cards=[],idx=0;
 function visibleCards(){var g=document.querySelector('.project-group.active');return g?Array.prototype.slice.call(g.querySelectorAll('.work-card[data-full]')):[];}
 function show(i){if(!cards.length)return;idx=(i+cards.length)%cards.length;var f=cards[idx];im.style.opacity=0;var pre=new Image();pre.onload=function(){im.src=f.querySelector('img').src;im.alt=f.querySelector('img').alt;cp.textContent=f.querySelector('figcaption b').textContent;im.style.opacity=1;};pre.src=f.querySelector('img').src;}
-function openLb(f){cards=visibleCards();idx=Math.max(0,cards.indexOf(f));lastFocus=document.activeElement;var q=f.querySelector('img');im.src=q.src;im.alt=q.alt;cp.textContent=f.querySelector('figcaption b').textContent;im.style.opacity=1;lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lbClose').focus();}
+function openLb(f){cards=visibleCards();idx=Math.max(0,cards.indexOf(f));lastFocus=document.activeElement;var q=f.querySelector('img');im.src=q.src;im.alt=q.alt;cp.textContent=f.querySelector('figcaption b').textContent;im.style.opacity=1;lb.classList.add('open');document.body.style.overflow='hidden';if(window.__lenis)window.__lenis.stop();document.getElementById('lbClose').focus();}
 document.querySelectorAll('.work-card[data-full]').forEach(function(f){
 f.addEventListener('click',function(){openLb(f);});
 f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(f);}});});
-function close(){lb.classList.remove('open');document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+function close(){lb.classList.remove('open');document.body.style.overflow='';if(window.__lenis)window.__lenis.start();if(lastFocus&&lastFocus.focus)lastFocus.focus();}
 document.getElementById('lbClose').addEventListener('click',close);
 document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();show(idx-1);});
 document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();show(idx+1);});
@@ -156,7 +152,9 @@ function activateTab(t){
 tabs.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-selected','false');x.tabIndex=-1;});
 t.classList.add('active');t.setAttribute('aria-selected','true');t.tabIndex=0;
 pgroups.forEach(function(g){g.classList.toggle('active',g.id===t.getAttribute('data-tab'));});
-var tw=document.querySelector('.tabs-wrap');if(tw)tw.scrollIntoView({behavior:'smooth',block:'start'});}
+var tw=document.querySelector('.tabs-wrap');
+if(tw){if(window.__lenis){window.__lenis.scrollTo(tw,{offset:-72,duration:1});}else{tw.scrollIntoView({behavior:'smooth',block:'start'});}}
+if(window.__motionCards){var ng=document.getElementById(t.getAttribute('data-tab'));if(ng)window.__motionCards(ng);}}
 tabs.forEach(function(t,i){t.tabIndex=t.classList.contains('active')?0:-1;
 t.addEventListener('click',function(){activateTab(t);});
 t.addEventListener('keydown',function(e){var n=null;

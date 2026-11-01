@@ -589,3 +589,35 @@ h2{letter-spacing:-.045em}
 @keyframes decoFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(6deg)}}
 @media(max-width:760px){.deco-impact{width:80px}.deco-cta{width:70px}}
 
+
+/* ============================================================
+   MOTION V2 — Lenis + GSAP (2026-11-01)
+   Lenis: smooth scrolling only. GSAP: opening + scroll reveals.
+   CSS keeps hovers, buttons, icons, menu, lightbox, floats.
+   .gsap-on = libraries loaded -> CSS stands down (no doubles).
+   Without it (no-JS / CDN fail / reduced motion) the original
+   CSS keyframes + legacy JS keep everything visible & calm.
+   ============================================================ */
+
+/* ---- Lenis recommended styles ---- */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* ---- GSAP drives the opening: kill CSS heroIn doubles ---- */
+.gsap-on .hero>.eyebrow,.gsap-on .hero>h1,.gsap-on .hero>.hero-sub,
+.gsap-on .hero>.hero-copy,.gsap-on .hero>.hero-actions,
+.gsap-on .page-hero>.back-btn,.gsap-on .page-hero>.kicker,
+.gsap-on .page-hero>h1,.gsap-on .page-hero>.lead,
+.gsap-on .contact-hero>.back-btn,.gsap-on .contact-hero>.kicker,
+.gsap-on .contact-hero>h1,.gsap-on .contact-hero>p,
+.gsap-on .contact-card,.gsap-on .hero>.metrics,
+.gsap-on .hero>.metrics .metric{animation:none!important}
+
+/* ---- GSAP drives reveals: undo CSS hidden states (JS re-hides) ---- */
+.gsap-on .reveal{opacity:1;transform:none;transition:none}
+.gsap-on .impact .impact-item{opacity:1;transform:none;transition:background .25s}
+
+/* ---- GSAP drives tab-switch card stagger: kill container pgIn ---- */
+.gsap-on body.js .project-group.active{animation:none}
