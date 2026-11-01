@@ -73,5 +73,6 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.tar
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (function(){if(!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var orbs=document.querySelectorAll('.page-orb,.cta-orb');if(!orbs.length)return;var tick=false;addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){var y=Math.min(scrollY,600)*.07;orbs.forEach(function(o){o.style.translate='0 '+y.toFixed(1)+'px';});tick=false;});},{passive:true});})();document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{var f=img.closest('figure');if(f){f.style.display='none';}else{img.style.display='none';}}));
 </script>
+<script src="//code.tidio.co/o9xwwoqdc7m85ptlo7xch1mhoolo3wqf.js" async></script>
 </body>
 </html>
