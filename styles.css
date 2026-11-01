@@ -564,3 +564,27 @@ h2{letter-spacing:-.045em}
 
 /* ---- 4. Decorative orbs: JS scroll parallax target ---- */
 .page-orb,.cta-orb{will-change:translate}
+
+/* ============================================================
+   ICONS & MICRO-INTERACTIONS (2026-11-01)
+   Monochrome SVG set, consistent 14px, subtle hover motion.
+   ============================================================ */
+.ic{width:14px;height:14px;flex:none;vertical-align:-2px;margin-right:2px;transition:transform .25s var(--ease)}
+.follow-links.secondary a{display:inline-flex;align-items:center}
+.follow-links.secondary a .ic{margin-right:8px}
+.follow-links a:hover .ic{transform:translate(2px,-2px)}
+.contact-links .btn .ic{width:15px;height:15px;margin-right:8px}
+.contact-links .btn:hover .ic{transform:scale(1.15) rotate(-6deg)}
+/* arrow nudge on external links */
+.follow-links a,.contact-links .btn{transition:transform .22s var(--ease),box-shadow .22s,background .22s,color .22s,border-color .22s}
+
+/* ---- background drift (very slow, barely-there) ---- */
+.hero::before{animation:glowDrift 22s ease-in-out infinite alternate}
+@keyframes glowDrift{from{transform:translateY(0)}to{transform:translateY(26px)}}
+
+/* ---- PNG decorative accents (chrome, monochrome) ---- */
+.deco{position:absolute;pointer-events:none;z-index:0;animation:decoFloat 9s ease-in-out infinite}
+.deco-impact{width:120px;right:-24px;bottom:-30px;opacity:.85}
+.deco-cta{width:100px;left:5%;top:-24px;opacity:.9;animation-delay:-4s}
+@keyframes decoFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(6deg)}}
+@media(max-width:760px){.deco-impact{width:80px}.deco-cta{width:70px}}
