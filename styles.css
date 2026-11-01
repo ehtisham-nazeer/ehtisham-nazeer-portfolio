@@ -320,6 +320,10 @@ body.js .project-group.active{display:flex;animation:pgIn .45s cubic-bezier(.2,.
 /* ---------- contact rows ---------- */
 .contact-rows a{color:var(--ink);text-decoration:none}
 .contact-rows a:hover{text-decoration:underline}
+/* ---------- year dividers (projects) ---------- */
+.year-div{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:10px 0 0}
+.year-div span{font:600 11px var(--mono);letter-spacing:.24em;color:var(--muted)}
+.year-div::after{content:"";flex:1;height:1px;background:var(--line)}
 /* ---------- job bullet points ---------- */
 .job-points{margin:0;padding-left:18px;font-size:13px;line-height:1.85;color:var(--ink-soft);max-width:760px}
 .job-points li{margin-bottom:6px}
