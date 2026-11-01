@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ehtisham-nazeer-portfolio.vercel.app/sitemap.xml

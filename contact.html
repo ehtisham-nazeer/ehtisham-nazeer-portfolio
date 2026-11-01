@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Contact Ehtisham Nazeer — marketing, business development, community and esports operations.">
+<link rel="canonical" href="https://ehtisham-nazeer-portfolio.vercel.app/contact.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ehtisham Nazeer">
+<meta property="og:title" content="Contact — Ehtisham Nazeer">
+<meta property="og:description" content="Contact Ehtisham Nazeer — marketing, business development, community and esports operations.">
+<meta property="og:url" content="https://ehtisham-nazeer-portfolio.vercel.app/contact.html">
+<meta property="og:image" content="https://ehtisham-nazeer-portfolio.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — Ehtisham Nazeer">
+<meta name="twitter:description" content="Contact Ehtisham Nazeer — marketing, business development, community and esports operations.">
+<meta name="twitter:image" content="https://ehtisham-nazeer-portfolio.vercel.app/og-image.png">
 <meta name="theme-color" content="#fbfaf7">
 <title>Contact — Ehtisham Nazeer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +50,7 @@
 </div>
 <div class="contact-rows">
 <div><h4>Email</h4><p><a href="mailto:ehtishamnazeer54@gmail.com">ehtishamnazeer54@gmail.com</a></p></div>
-<div><h4>Phone / WhatsApp</h4><p><a href="https://wa.me/923191239229" target="_blank" rel="noopener noreferrer">+92 319 1239229</a></p></div>
+<div><h4>Phone / WhatsApp</h4><p><a href="tel:+923191239229">+92 319 1239229</a> · <a href="https://wa.me/923191239229" target="_blank" rel="noopener noreferrer">WhatsApp</a></p></div>
 <div><h4>Location</h4><p>Multan, Punjab, Pakistan</p></div>
 </div>
 </div>
@@ -55,9 +68,10 @@
 <script>
 const menu=document.getElementById('menu'),links=document.getElementById('links');
 menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'CLOSE −':'MENU +'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='MENU +';menu.focus();}});
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none'}));
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{var f=img.closest('figure');if(f){f.style.display='none';}else{img.style.display='none';}}));
 </script>
 </body>
 </html>

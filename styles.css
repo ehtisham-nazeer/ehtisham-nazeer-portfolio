@@ -294,7 +294,7 @@ footer{background:var(--ink);color:#a9a9b2}
 .lightbox.open{display:flex}
 .lightbox img{max-width:92vw;max-height:84vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .lb-cap{color:#fff;text-align:center;margin-top:12px;font-size:14px}
-.lb-x{position:absolute;top:16px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1}
+.lb-x{position:absolute;top:16px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1;background:none;border:0;padding:8px;font-family:inherit}
 
 /* ---------- project tabs ---------- */
 .tabs-wrap{position:sticky;top:65px;z-index:40;background:rgba(248,248,246,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
