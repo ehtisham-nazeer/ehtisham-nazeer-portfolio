@@ -636,3 +636,8 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---- mobile hero: name stays cleanly above the floating orb art ---- */
 @media(max-width:760px){.hero>h1{position:relative;z-index:2}}
+
+/* ---- dark tile for light/white logos (Gangstar) ---- */
+.game.game-dark{background:#0e0e14;border-color:#0e0e14}
+.game.game-dark b{color:#fff}
+.game.game-dark:hover{background:#14141b;border-color:#14141b}
