@@ -122,6 +122,7 @@ h2 .thin{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
 .page-hero .kicker,.page-hero .lead{position:relative;z-index:2}
 /* small chrome dot decoration on inner pages */
 .page-orb{position:absolute;right:5%;top:30%;width:110px;aspect-ratio:1;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 30% 24%,#ffffff 0 4%,#dcdcdc 11%,#8b8b8b 27%,#2a2a2a 52%,#080808 70%,#c9c9c9 79%,#232323 91%);box-shadow:inset -8px -10px 18px rgba(0,0,0,.6),inset 5px 5px 12px rgba(255,255,255,.5),0 16px 24px rgba(12,12,14,.18)}
+.page-orb:after{content:"EN";position:absolute;inset:0;display:grid;place-items:center;color:#f4f4f2;font:800 28px var(--display);letter-spacing:-.06em;text-shadow:0 2px 8px rgba(0,0,0,.8)}
 .ataglance{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:36px 0 8px}
 .glance{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;box-shadow:0 2px 8px rgba(12,12,14,.04);transition:.2s}
 .glance:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--ink)}
