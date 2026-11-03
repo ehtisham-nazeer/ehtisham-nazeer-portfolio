@@ -1,12 +1,12 @@
 /* ============================================================
-   MOTION SYSTEM V3 — GSAP + Native Scroll (2026-11-03)
+   MOTION SYSTEM V4 — Lenis + GSAP (2026-11-03)
    ------------------------------------------------------------
    One shared motion file for all pages. Two paths, no doubles:
 
-   PATH A (gsap + ScrollTrigger loaded, motion OK):
+   PATH A (gsap + ScrollTrigger + Lenis loaded, motion OK):
      - <html> gets .gsap-on  -> CSS kills its own heroIn / .reveal
        hidden-states / impact staggers / tab pgIn (GSAP drives them)
-     - NATIVE scroll (no JS smoothing = zero input lag)
+     - Lenis: smooth wheel scrolling (desktop), native touch (mobile)
      - GSAP: opening timeline + scroll reveals + tab-switch stagger
      - CSS keeps: hovers, buttons, icons, menu, lightbox, orbs' float
    PATH B (CDN failed OR prefers-reduced-motion):
@@ -47,7 +47,7 @@ document.querySelectorAll('img').forEach(function(img){
 
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var finePointer=window.matchMedia('(pointer:fine)').matches;
-var hasV2=!reduced&&window.gsap&&window.ScrollTrigger;
+var hasV2=!reduced&&window.gsap&&window.ScrollTrigger&&window.Lenis;
 
 if(hasV2){
   /* add BEFORE first paint: CSS stands down, GSAP takes over */
@@ -65,8 +65,12 @@ function initV2(){
   gsap.registerPlugin(ScrollTrigger);
   if(ScrollTrigger.config){ScrollTrigger.config({ignoreMobileResize:true});}
 
-  /* ---- Native scroll: no JS smoothing = zero lag ---- */
-  window.__lenis=null;
+  /* ---- Lenis: buttery smooth scroll ---- */
+  var lenis=new Lenis({duration:1.0,smoothWheel:true});
+  window.__lenis=lenis;
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(function(time){lenis.raf(time*1000);});
+  gsap.ticker.lagSmoothing(0);
 
   /* ---- smooth anchor navigation (skip-link etc.) ---- */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
@@ -76,7 +80,7 @@ function initV2(){
     if(!target)return;
     a.addEventListener('click',function(ev){
       ev.preventDefault();
-      target.scrollIntoView({behavior:'smooth',block:'start'});
+      if(window.__lenis){window.__lenis.scrollTo(target,{offset:-72,duration:1.0});}else{target.scrollIntoView({behavior:'smooth',block:'start'});}
       if(target.getAttribute('tabindex')==null){target.setAttribute('tabindex','-1');}
       target.focus({preventScroll:true});
     });
@@ -86,15 +90,10 @@ function initV2(){
   if(finePointer){
     var orbs=document.querySelectorAll('.page-orb,.cta-orb');
     if(orbs.length){
-      var tick=false;
-      window.addEventListener('scroll',function(){
-        if(tick)return;tick=true;
-        requestAnimationFrame(function(){
-          var y=Math.min(window.scrollY,600)*0.07;
-          for(var i=0;i<orbs.length;i++){orbs[i].style.translate='0 '+y.toFixed(1)+'px';}
-          tick=false;
-        });
-      },{passive:true});
+      lenis.on('scroll',function(e){
+        var y=Math.min(e.scroll||window.scrollY,600)*0.07;
+        for(var i=0;i<orbs.length;i++){orbs[i].style.translate='0 '+y.toFixed(1)+'px';}
+      });
     }
     /* ---- hero mouse parallax (index only, desktop) ---- */
     var hero=document.querySelector('.hero'),art=document.querySelector('.hero-art');
