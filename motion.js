@@ -66,7 +66,7 @@ function initV2(){
   if(ScrollTrigger.config){ScrollTrigger.config({ignoreMobileResize:true});}
 
   /* ---- Lenis: smooth scrolling only ---- */
-  var lenis=new Lenis({duration:1.1,smoothWheel:true});
+  var lenis=new Lenis({duration:0.8,smoothWheel:true});
   window.__lenis=lenis; /* tabs + lightbox hook into this */
   lenis.on('scroll',ScrollTrigger.update);
   gsap.ticker.add(function(time){lenis.raf(time*1000);});
@@ -128,21 +128,21 @@ function initV2(){
 function opening(E){
   if(document.querySelector('.hero')){
     gsap.timeline({defaults:{ease:E}})
-      .from('.hero > .eyebrow',{y:14,opacity:0,duration:.55},0)
+      .from('.hero > .eyebrow',{y:14,opacity:0,duration:.4},0)
       /* signature: clean line-mask reveal on the name */
-      .from('.hero > h1 .lm > span',{yPercent:118,duration:.85,stagger:.12},.05)
+      .from('.hero > h1 .lm > span',{yPercent:118,duration:.6,stagger:.08},.05)
       /* opacity only: orbFloat owns .hero-art's transform */
-      .from('.hero-art',{opacity:0,duration:.9},.15)
-      .from('.hero > .hero-sub',{y:18,opacity:0,duration:.6},.16)
-      .from('.hero > .hero-copy',{y:18,opacity:0,duration:.6},.22)
-      .from('.hero > .hero-actions',{y:18,opacity:0,duration:.6},.30)
-      .from('.hero > .metrics .metric',{y:14,opacity:0,duration:.5,stagger:.07},.40);
+      .from('.hero-art',{opacity:0,duration:.6},.1)
+      .from('.hero > .hero-sub',{y:18,opacity:0,duration:.45},.12)
+      .from('.hero > .hero-copy',{y:18,opacity:0,duration:.45},.16)
+      .from('.hero > .hero-actions',{y:18,opacity:0,duration:.45},.22)
+      .from('.hero > .metrics .metric',{y:14,opacity:0,duration:.4,stagger:.05},.28);
   }else{
     /* experience / projects / contact: lighter entrance */
     var sel='.page-hero > *, .contact-hero > *';
     if(document.querySelector('.page-hero, .contact-hero')){
       gsap.timeline({defaults:{ease:E}})
-        .from(sel,{y:18,opacity:0,duration:.6,stagger:.07},0);
+        .from(sel,{y:18,opacity:0,duration:.45,stagger:.05},0);
     }
   }
 }
@@ -153,7 +153,7 @@ function reveals(E){
   gsap.utils.toArray('.reveal').forEach(function(el){
     if(el.classList.contains('work-card')||el.classList.contains('impact'))return;
     gsap.fromTo(el,{y:24,opacity:0},
-      {y:0,opacity:1,duration:.7,ease:E,clearProps:'transform,opacity',
+      {y:0,opacity:1,duration:.55,ease:E,clearProps:'transform,opacity',
        scrollTrigger:{trigger:el,start:'top 88%',once:true}});
   });
 
