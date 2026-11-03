@@ -66,11 +66,11 @@ function initV2(){
   if(ScrollTrigger.config){ScrollTrigger.config({ignoreMobileResize:true});}
 
   /* ---- Lenis: buttery smooth scroll ---- */
-  var lenis=new Lenis({duration:1.0,smoothWheel:true});
+  var lenis=new Lenis({duration:0.7,smoothWheel:true});
   window.__lenis=lenis;
   lenis.on('scroll',ScrollTrigger.update);
   gsap.ticker.add(function(time){lenis.raf(time*1000);});
-  gsap.ticker.lagSmoothing(0);
+  
 
   /* ---- smooth anchor navigation (skip-link etc.) ---- */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
