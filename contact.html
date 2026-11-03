@@ -67,11 +67,14 @@
 </div>
 </div></div></div>
 <footer><div class="wrap foot"><span class="flogo">Ehtisham Nazeer</span><span>© 2026 Ehtisham Nazeer</span><span>Marketing · Business Development · Community &amp; Operations</span></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-<script src="motion.js"></script>
-<script src="//code.tidio.co/o9xwwoqdc7m85ptlo7xch1mhoolo3wqf.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="motion.js" defer></script>
+<script>
+/* Tidio delayed 3s for performance — chat loads after page is interactive */
+window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.src='//code.tidio.co/o9xwwoqdc7m85ptlo7xch1mhoolo3wqf.js';s.async=true;document.body.appendChild(s);},3000);});
+</script>
 <!-- Visitor "New chat" reset (2026-11-01): wipes saved Tidio state, reloads into a fresh thread -->
 </body>
 </html>
